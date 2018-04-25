@@ -84,6 +84,12 @@ class StartPageViewController: UIViewController {
             nextViewController.backgroundCol = vars.backgroundColor
             nextViewController.buttonCol = vars.buttonColor!
         }
+        if (segue.identifier == "Slide") {
+            let vc = segue.destination as! UINavigationController
+            let nextViewController = vc.viewControllers[0] as! SlideViewController
+            nextViewController.view.backgroundColor = vars.backgroundColor
+            nextViewController.setButtonCol(color: vars.buttonColor!)
+        }
        
         
     }

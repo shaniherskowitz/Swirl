@@ -16,6 +16,7 @@ struct MyVars {
     static var buttonPlace = 0.5
     static var defStars = 3
     static var songName = "Pick Song"
+    static var song = MPMediaItem()
 }
 class SettingsViewController: UIViewController, MPMediaPickerControllerDelegate {
 
@@ -30,7 +31,7 @@ class SettingsViewController: UIViewController, MPMediaPickerControllerDelegate 
     @IBOutlet weak var StarRating: RatingControl!
     @IBOutlet weak var SongButton: UIButton!
     
-    var song = MPMediaItem()
+    var song = MyVars.song
     var col = MyVars.color
     var buttonCol = MyVars.buttonColor
     var sync = false
@@ -147,7 +148,7 @@ class SettingsViewController: UIViewController, MPMediaPickerControllerDelegate 
         MyVars.buttonPlace = Double(ButtonPicker.value)
         buttonCol = MyVars.buttonColor
         MyVars.defStars = StarRating.rating
-        
+        MyVars.song = song
         
     }
     @IBAction func Cancel(_ sender: UIBarButtonItem) {

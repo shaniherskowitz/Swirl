@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F32E2241208291A80068065D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E2240208291A80068065D /* RatingControl.swift */; };
+		F34B170C2090F75900385C2C /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B170B2090F75900385C2C /* SlideViewController.swift */; };
 		F3830259207F565C00174F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3830258207F565C00174F38 /* AppDelegate.swift */; };
 		F383025B207F565C00174F38 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383025A207F565C00174F38 /* ImageViewController.swift */; };
 		F383025E207F565C00174F38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F383025C207F565C00174F38 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		F32E2240208291A80068065D /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		F34B170B2090F75900385C2C /* SlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		F3830255207F565C00174F38 /* Swirl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swirl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3830258207F565C00174F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F383025A207F565C00174F38 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				F38C650D20890984003F1B9A /* StartPageViewController.swift */,
 				F38C650F208910C0003F1B9A /* Extensions.swift */,
 				F3D6E6A7208BD29000D2FAB3 /* SettingsViewController.swift */,
+				F34B170B2090F75900385C2C /* SlideViewController.swift */,
 				F383025C207F565C00174F38 /* Main.storyboard */,
 				F383025F207F565C00174F38 /* Assets.xcassets */,
 				F3830261207F565C00174F38 /* LaunchScreen.storyboard */,
@@ -226,6 +229,7 @@
 				F39E5EB52083D0A60081FE71 /* ImageTableViewCell.swift in Sources */,
 				F32E2241208291A80068065D /* RatingControl.swift in Sources */,
 				F3830259207F565C00174F38 /* AppDelegate.swift in Sources */,
+				F34B170C2090F75900385C2C /* SlideViewController.swift in Sources */,
 				F38C650E20890984003F1B9A /* StartPageViewController.swift in Sources */,
 				F38C6510208910C0003F1B9A /* Extensions.swift in Sources */,
 				F3D6E6A8208BD29000D2FAB3 /* SettingsViewController.swift in Sources */,

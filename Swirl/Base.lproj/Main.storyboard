@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VV6-3G-Zuf" id="McU-bL-dcO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default photo" translatesAutoresizingMaskIntoConstraints="NO" id="jla-X6-ZL1">
@@ -209,6 +209,59 @@
             </objects>
             <point key="canvasLocation" x="-3164" y="116"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5WQ-QQ-ndt">
+            <objects>
+                <navigationController id="hcp-Ya-go7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cjw-cY-BMC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fqr-T5-Nqf" kind="relationship" relationship="rootViewController" id="iX2-aa-lgB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBV-KE-7vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1919" y="-594"/>
+        </scene>
+        <!--Slideshow-->
+        <scene sceneID="Ltb-PT-1VM">
+            <objects>
+                <viewController id="fqr-T5-Nqf" customClass="SlideViewController" customModule="Swirl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G5n-y3-DHW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default photo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fl-n7v">
+                                <rect key="frame" x="29" y="168" width="317" height="301"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95559090375900269" green="0.94586330652236938" blue="0.99979501962661743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lVa-n7-Inr" firstAttribute="bottom" secondItem="QgG-Fl-n7v" secondAttribute="bottom" constant="198" id="BGH-eT-CDj"/>
+                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="top" secondItem="lVa-n7-Inr" secondAttribute="top" constant="104" id="LOD-V0-OU7"/>
+                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="leading" secondItem="lVa-n7-Inr" secondAttribute="leading" constant="29" id="jap-Co-7K1"/>
+                            <constraint firstItem="lVa-n7-Inr" firstAttribute="trailing" secondItem="QgG-Fl-n7v" secondAttribute="trailing" constant="29" id="mu3-uZ-4gb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lVa-n7-Inr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Slideshow" id="eAI-YB-47I">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Wh7-bF-vca">
+                            <connections>
+                                <action selector="Exit:" destination="fqr-T5-Nqf" id="oIw-vh-QBJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ExitButton" destination="Wh7-bF-vca" id="5vK-KS-Zdn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEP-4l-joA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1178" y="-594"/>
+        </scene>
         <!--Start Page-->
         <scene sceneID="2wW-dA-Rqy">
             <objects>
@@ -255,6 +308,7 @@
                                         <connections>
                                             <action selector="SettingsButton:" destination="872-pu-anL" eventType="touchUpInside" id="Mer-1P-e87"/>
                                             <action selector="SlideButton:" destination="Gqa-md-fZ8" eventType="touchUpInside" id="VGk-C0-RI8"/>
+                                            <segue destination="hcp-Ya-go7" kind="show" identifier="Slide" id="aN0-04-Wfm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzZ-o5-PeK">
