@@ -84,7 +84,7 @@
                             <barButtonItem title="Menu" id="Tgb-pz-bt9">
                                 <color key="tintColor" red="0.67894859699999999" green="0.59247113659999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="BackToMenu:" destination="YXV-4D-F5B" id="J12-wa-OWZ"/>
+                                    <segue destination="SjK-aQ-aFK" kind="unwind" unwindAction="unwindToStartPageWithSender:" id="1BM-9n-0dS"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -95,6 +95,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA8-ah-Cgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SjK-aQ-aFK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-327" y="116"/>
         </scene>
@@ -256,6 +257,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ExitButton" destination="Wh7-bF-vca" id="5vK-KS-Zdn"/>
+                        <outlet property="ImageView" destination="QgG-Fl-n7v" id="HTX-Rd-V1R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEP-4l-joA" userLabel="First Responder" sceneMemberID="firstResponder"/>

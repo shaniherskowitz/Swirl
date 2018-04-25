@@ -19,6 +19,7 @@ class StartPageViewController: UIViewController {
     
     var ratingsForSlide = 0
     var song = MPMediaItem()
+    var images = [Image]()
     
     @IBOutlet weak var MenuLabel: UILabel!
     // MARK: - Actions
@@ -27,9 +28,7 @@ class StartPageViewController: UIViewController {
         
     }
     @IBAction func SlideButton(_ sender: UIButton) {
-        let myMediaPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
-        myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
-        myMediaPlayer.play()
+       
     }
     
     @IBAction func SettingsButton(_ sender: UIButton) {
@@ -46,7 +45,10 @@ class StartPageViewController: UIViewController {
         }
         updateButtonText()
         MenuLabel.textColor = vars.backgroundColor.darker()
-           
+        
+         if let sourceViewController = sender.source as? ImageTableViewController {
+            images = sourceViewController.images
+        }
     }
     
     
@@ -89,6 +91,8 @@ class StartPageViewController: UIViewController {
             let nextViewController = vc.viewControllers[0] as! SlideViewController
             nextViewController.view.backgroundColor = vars.backgroundColor
             nextViewController.setButtonCol(color: vars.buttonColor!)
+            nextViewController.setImages(pics: images)
+            nextViewController.setSong(song: song)
         }
        
         

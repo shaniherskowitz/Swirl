@@ -7,18 +7,36 @@
 //
 
 import UIKit
-
+import MediaPlayer
 class SlideViewController: UIViewController {
     
     
     @IBOutlet weak var ExitButton: UIBarButtonItem!
+    @IBOutlet weak var ImageView: UIImageView!
+    var images = [Image]()
+    var song =  MPMediaItem()
+    let myMediaPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(!images.isEmpty) {
+            ImageView.image = images[1].photo
+        }
         // Do any additional setup after loading the view.
     }
     
     func setButtonCol(color: UIColor) {
         ExitButton.tintColor = color
+    }
+    func setImages(pics: [Image]) {
+        images = pics
+        if(!images.isEmpty) {
+            ImageView.image = images[1].photo
+        }
+    }
+    func setSong(song: MPMediaItem) {
+        myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
+        myMediaPlayer.play()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +45,7 @@ class SlideViewController: UIViewController {
     }
     // MARK: - Action
     @IBAction func Exit(_ sender: UIBarButtonItem) {
+        myMediaPlayer.stop()
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInSettingsMode = presentingViewController is UINavigationController
         if isPresentingInSettingsMode {

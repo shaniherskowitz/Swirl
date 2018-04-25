@@ -151,7 +151,7 @@ class ImageTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
-    @IBAction func BackToMenu(_ sender: UIBarButtonItem) {
+   /* @IBAction func BackToMenu(_ sender: UIBarButtonItem) {
             // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
             let isPresentingInImageTableMode = presentingViewController is UINavigationController
             if isPresentingInImageTableMode {
@@ -162,7 +162,7 @@ class ImageTableViewController: UITableViewController {
                 fatalError("The ImageTableViewController is not inside a navigation controller.")
             }
         
-    }
+    }*/
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -201,7 +201,11 @@ class ImageTableViewController: UITableViewController {
             os_log("Going to settings.", log: OSLog.default, type: .debug)
             
         default:
-            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+            guard let button = sender as? UIBarButtonItem, button === menuButtonItem else {
+                os_log("The menu button was not pressed, cancelling", log: OSLog.default, type: .debug)
+                return
+            }
+            //fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
     
