@@ -27,7 +27,6 @@ class StartPageViewController: UIViewController {
         
     }
     @IBAction func SlideButton(_ sender: UIButton) {
-        //updateButtonText()
         let myMediaPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
         myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
         myMediaPlayer.play()
