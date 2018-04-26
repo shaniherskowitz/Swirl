@@ -8,6 +8,10 @@
 
 import UIKit
 import MediaPlayer
+
+struct vars2 {
+    static var isOpen = true
+}
 class SlideViewController: UIViewController {
     
     
@@ -19,43 +23,55 @@ class SlideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        images = loadImages()!
+        
         DispatchQueue.global(qos: .background).async {
             self.slideImages(imageView: self.ImageView)
             DispatchQueue.main.async {
                 print("This is run on the main queue, after the previous code in outer block")
             }
+            
         }
+        vars2.isOpen = true
         
         // Do any additional setup after loading the view.
     }
     
+    func setImages(pics: [Image]) {
+        images = pics
+    }
     func setButtonCol(color: UIColor) {
         ExitButton.tintColor = color
     }
     func slideImages(imageView: UIImageView) {
-        while myMediaPlayer.nowPlayingItem != nil {
+        images = loadImages()!
+        var run = true
+        while run {
+            
             
             for image in images {
                 DispatchQueue.main.async {
+                    if vars2.isOpen == false {run = false}
                     UIView.transition(with: imageView,
-                                      duration:0.5,
+                                      duration:1,
                                       options: .transitionCrossDissolve,
                                       animations: { imageView.image = image.photo },
                                       completion: nil)
-
+                    
                 }
+                if !run {break}
                 sleep(3)
-            
+                
             }
         }
+        images.removeAll()
+        
         
     }
     func setSong(song: MPMediaItem) {
         myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
         myMediaPlayer.play()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,6 +79,7 @@ class SlideViewController: UIViewController {
     // MARK: - Action
     @IBAction func Exit(_ sender: UIBarButtonItem) {
         myMediaPlayer.stop()
+        vars2.isOpen = false
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInSettingsMode = presentingViewController is UINavigationController
         if isPresentingInSettingsMode {
@@ -78,18 +95,18 @@ class SlideViewController: UIViewController {
     private func loadImages() -> [Image]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Image.ArchiveURL.path) as? [Image]
     }
-
+    
     
     /*// MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        super.prepare(for: segue, sender: sender)
-        
-            
-    }*/
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     super.prepare(for: segue, sender: sender)
+     
+     
+     }*/
     
-
+    
 }

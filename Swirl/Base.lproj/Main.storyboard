@@ -234,18 +234,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default photo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fl-n7v">
-                                <rect key="frame" x="29" y="168" width="317" height="301"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fl-n7v">
+                                <rect key="frame" x="0.0" y="110" width="375" height="479"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.95559090375900269" green="0.94586330652236938" blue="0.99979501962661743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="lVa-n7-Inr" firstAttribute="bottom" secondItem="QgG-Fl-n7v" secondAttribute="bottom" constant="198" id="BGH-eT-CDj"/>
-                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="top" secondItem="lVa-n7-Inr" secondAttribute="top" constant="104" id="LOD-V0-OU7"/>
-                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="leading" secondItem="lVa-n7-Inr" secondAttribute="leading" constant="29" id="jap-Co-7K1"/>
-                            <constraint firstItem="lVa-n7-Inr" firstAttribute="trailing" secondItem="QgG-Fl-n7v" secondAttribute="trailing" constant="29" id="mu3-uZ-4gb"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lVa-n7-Inr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Slideshow" id="eAI-YB-47I">
@@ -262,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEP-4l-joA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1178" y="-594"/>
+            <point key="canvasLocation" x="-1178.4000000000001" y="-594.15292353823088"/>
         </scene>
         <!--Start Page-->
         <scene sceneID="2wW-dA-Rqy">
@@ -771,6 +766,7 @@
     </scenes>
     <resources>
         <image name="default photo" width="540" height="540"/>
+        <image name="logo" width="299" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2A5-w9-dVU"/>
