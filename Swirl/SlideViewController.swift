@@ -19,20 +19,37 @@ class SlideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(!images.isEmpty) {
-            ImageView.image = images[1].photo
+        images = loadImages()!
+        DispatchQueue.global(qos: .background).async {
+            self.slideImages(imageView: self.ImageView)
+            DispatchQueue.main.async {
+                print("This is run on the main queue, after the previous code in outer block")
+            }
         }
+        
         // Do any additional setup after loading the view.
     }
     
     func setButtonCol(color: UIColor) {
         ExitButton.tintColor = color
     }
-    func setImages(pics: [Image]) {
-        images = pics
-        if(!images.isEmpty) {
-            ImageView.image = images[1].photo
+    func slideImages(imageView: UIImageView) {
+        while myMediaPlayer.nowPlayingItem != nil {
+            
+            for image in images {
+                DispatchQueue.main.async {
+                    UIView.transition(with: imageView,
+                                      duration:0.5,
+                                      options: .transitionCrossDissolve,
+                                      animations: { imageView.image = image.photo },
+                                      completion: nil)
+
+                }
+                sleep(3)
+            
+            }
         }
+        
     }
     func setSong(song: MPMediaItem) {
         myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
@@ -56,6 +73,10 @@ class SlideViewController: UIViewController {
         } else {
             fatalError("The SlideViewController is not inside a navigation controller.")
         }
+    }
+    
+    private func loadImages() -> [Image]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Image.ArchiveURL.path) as? [Image]
     }
 
     

@@ -91,7 +91,7 @@ class StartPageViewController: UIViewController {
             let nextViewController = vc.viewControllers[0] as! SlideViewController
             nextViewController.view.backgroundColor = vars.backgroundColor
             nextViewController.setButtonCol(color: vars.buttonColor!)
-            nextViewController.setImages(pics: images)
+            //nextViewController.setImages(pics: images)
             nextViewController.setSong(song: song)
         }
        
