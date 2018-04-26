@@ -17,7 +17,7 @@ class StartPageViewController: UIViewController {
     
     @IBOutlet var collection:[UIButton]!
     
-    var ratingsForSlide = 0
+    var ratingsForSlide = 3
     var song = MPMediaItem()
     var images = [Image]()
     
@@ -93,6 +93,7 @@ class StartPageViewController: UIViewController {
             nextViewController.setButtonCol(color: vars.buttonColor!)
             //nextViewController.setImages(pics: images)
             nextViewController.setSong(song: song)
+            nextViewController.rating = ratingsForSlide
         }
        
         

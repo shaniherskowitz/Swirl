@@ -15,10 +15,13 @@ struct vars2 {
 class SlideViewController: UIViewController {
     
     
+    @IBOutlet weak var PhotoRating: RatingControl!
+    @IBOutlet weak var PhotoName: UILabel!
     @IBOutlet weak var ExitButton: UIBarButtonItem!
     @IBOutlet weak var ImageView: UIImageView!
     var images = [Image]()
     var song =  MPMediaItem()
+    var rating = 0
     let myMediaPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
     
     override func viewDidLoad() {
@@ -44,28 +47,53 @@ class SlideViewController: UIViewController {
     }
     func slideImages(imageView: UIImageView) {
         images = loadImages()!
+        if images.isEmpty {return}
         var run = true
+        var tran = 0
         while run {
-            
-            
+            DispatchQueue.main.async {
+                if vars2.isOpen == false {run = false}
+            }
             for image in images {
-                DispatchQueue.main.async {
-                    if vars2.isOpen == false {run = false}
-                    UIView.transition(with: imageView,
-                                      duration:1,
-                                      options: .transitionCrossDissolve,
-                                      animations: { imageView.image = image.photo },
-                                      completion: nil)
-                    
+                if image.rating <= rating {
+                    DispatchQueue.main.async {
+                        if vars2.isOpen == false {run = false}
+                        tran = self.photoTransition(num: tran, image: image)
+                        UIView.transition(with: self.PhotoName, duration:1, options: .transitionCrossDissolve,
+                                          animations: { self.PhotoName.text = image.name }, completion: nil)
+                        UIView.transition(with: self.PhotoRating, duration:1, options: .transitionCrossDissolve,
+                                          animations: { self.PhotoRating.rating = image.rating }, completion: nil)
+                    }
+                    if !run {break}
+                    sleep(3)
                 }
-                if !run {break}
-                sleep(3)
-                
             }
         }
         images.removeAll()
         
         
+    }
+    func photoTransition(num: Int, image: Image) -> Int  {
+        var res = num
+        if res == 4 {res = 0}
+        switch res {
+        case 0:
+            UIView.transition(with: self.ImageView, duration:1, options: .transitionFlipFromLeft,
+                              animations: { self.ImageView.image = image.photo }, completion: nil)
+        case 1:
+            UIView.transition(with: self.ImageView, duration:1, options: .transitionFlipFromTop,
+                              animations: { self.ImageView.image = image.photo }, completion: nil)
+        case 2:
+            UIView.transition(with: self.ImageView, duration:1, options: .transitionFlipFromRight,
+                              animations: { self.ImageView.image = image.photo }, completion: nil)
+        case 3:
+            UIView.transition(with: self.ImageView, duration:1, options: .transitionFlipFromBottom,
+                              animations: { self.ImageView.image = image.photo }, completion: nil)
+        default:
+            print("error in transition")
+        }
+        res = res + 1
+        return res
     }
     func setSong(song: MPMediaItem) {
         myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
@@ -95,7 +123,12 @@ class SlideViewController: UIViewController {
     private func loadImages() -> [Image]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Image.ArchiveURL.path) as? [Image]
     }
-    
+    // MARK: Autoroate configuration
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
     
     /*// MARK: - Navigation
      
