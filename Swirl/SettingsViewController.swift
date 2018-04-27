@@ -14,7 +14,7 @@ struct MyVars {
     static var place = 0.5
     static var buttonColor = #colorLiteral(red: 0.7460694505, green: 0.7181759783, blue: 0.8385317326, alpha: 1)
     static var buttonPlace = 0.5
-    static var defStars = 3
+    static var defStars = 5
     static var songName = "Pick Song"
     static var song = MPMediaItem()
 }

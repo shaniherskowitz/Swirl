@@ -17,7 +17,7 @@ class StartPageViewController: UIViewController {
     
     @IBOutlet var collection:[UIButton]!
     
-    var ratingsForSlide = 3
+    var ratingsForSlide = 5
     var song = MPMediaItem()
     var images = [Image]()
     
