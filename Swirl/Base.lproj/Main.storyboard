@@ -115,7 +115,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter picture name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TKv-eC-qtk">
                                         <rect key="frame" x="2.5" y="0.0" width="300" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="u4L-m1-GS9"/>
+                                            <constraint firstAttribute="width" constant="300" id="HSU-UF-giu"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -171,6 +171,7 @@
                             <constraint firstItem="O8e-IX-3JO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="AnS-Oa-INe"/>
                             <constraint firstItem="40M-jZ-V0o" firstAttribute="leading" secondItem="O8e-IX-3JO" secondAttribute="trailing" constant="4" id="KRs-qb-6mH"/>
                             <constraint firstItem="40M-jZ-V0o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="NfQ-Nr-77H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="40M-jZ-V0o" secondAttribute="trailing" constant="11" id="TiU-mw-e15"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O8e-IX-3JO" secondAttribute="bottom" constant="149" id="kb3-KF-06E"/>
                             <constraint firstItem="O8e-IX-3JO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="yeF-zd-34n"/>
                         </constraints>
@@ -379,9 +380,6 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-Te-UI3">
                                 <rect key="frame" x="100" y="104" width="175" height="59.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="hZA-9u-wfD"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="54"/>
                                 <color key="textColor" red="0.45962202089999998" green="0.39614676160000001" blue="0.68745952070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
