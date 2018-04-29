@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F31A20F32095FB8B00F6F382 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31A20F22095FB8B00F6F382 /* StoreKit.framework */; };
 		F32E2241208291A80068065D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E2240208291A80068065D /* RatingControl.swift */; };
 		F34B170C2090F75900385C2C /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B170B2090F75900385C2C /* SlideViewController.swift */; };
 		F3830259207F565C00174F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3830258207F565C00174F38 /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F31A20F22095FB8B00F6F382 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F32E2240208291A80068065D /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		F34B170B2090F75900385C2C /* SlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		F3830255207F565C00174F38 /* Swirl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swirl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F31A20F32095FB8B00F6F382 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +75,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F31A20F12095FB8B00F6F382 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F31A20F22095FB8B00F6F382 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F383024C207F565C00174F38 = {
 			isa = PBXGroup;
 			children = (
 				F3830257207F565C00174F38 /* Swirl */,
 				F383026C207F565C00174F38 /* SwirlTests */,
 				F3830256207F565C00174F38 /* Products */,
+				F31A20F12095FB8B00F6F382 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +183,11 @@
 					F3830254207F565C00174F38 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					F3830268207F565C00174F38 = {
 						CreatedOnToolsVersion = 9.2;
@@ -305,7 +322,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -385,10 +402,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSA343KTP8;
 				INFOPLIST_FILE = Swirl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SH.Swirl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,10 +421,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSA343KTP8;
 				INFOPLIST_FILE = Swirl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SH.Swirl;
 				PRODUCT_NAME = "$(TARGET_NAME)";

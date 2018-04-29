@@ -19,7 +19,6 @@ class StartPageViewController: UIViewController {
     
     var ratingsForSlide = 5
     var song = MPMediaItem()
-    var images = [Image]()
     
     @IBOutlet weak var MenuLabel: UILabel!
     // MARK: - Actions
@@ -47,7 +46,8 @@ class StartPageViewController: UIViewController {
         MenuLabel.textColor = vars.backgroundColor.darker()
         
          if let sourceViewController = sender.source as? ImageTableViewController {
-            images = sourceViewController.images
+            
+            
         }
     }
     
@@ -91,7 +91,6 @@ class StartPageViewController: UIViewController {
             let nextViewController = vc.viewControllers[0] as! SlideViewController
             nextViewController.view.backgroundColor = vars.backgroundColor
             nextViewController.setButtonCol(color: vars.buttonColor!)
-            //nextViewController.setImages(pics: images)
             nextViewController.setSong(song: song)
             nextViewController.rating = ratingsForSlide
         }

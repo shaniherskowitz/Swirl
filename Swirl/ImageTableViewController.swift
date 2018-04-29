@@ -77,7 +77,7 @@ class ImageTableViewController: UITableViewController {
     }
 
     @IBAction func Menu(_ sender: UIBarButtonItem) {
-        saveImages()
+       // saveImages()
     }
     // MARK: - Table view data source
 
@@ -107,6 +107,7 @@ class ImageTableViewController: UITableViewController {
         cell.photoImageView.image = image.photo
         cell.RatingsControl.rating = image.rating
         
+        
         return cell
     }
  
@@ -125,7 +126,7 @@ class ImageTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             images.remove(at: indexPath.row)
-            saveImages()
+            //saveImages()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -216,8 +217,7 @@ class ImageTableViewController: UITableViewController {
     
     
     //MARK: Private Methods
-    
-    private func saveImages() {
+    public func saveImages() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(images, toFile: Image.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Images successfully saved.", log: OSLog.default, type: .debug)
@@ -248,6 +248,7 @@ class ImageTableViewController: UITableViewController {
     }
     
     private func loadImages() -> [Image]? {
+        if !images.isEmpty {return images}
         return NSKeyedUnarchiver.unarchiveObject(withFile: Image.ArchiveURL.path) as? [Image]
     }
     

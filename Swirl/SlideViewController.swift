@@ -40,7 +40,9 @@ class SlideViewController: UIViewController {
     }
     
     func setImages(pics: [Image]) {
+        if !pics.isEmpty {
         images = pics
+        }
     }
     func setButtonCol(color: UIColor) {
         ExitButton.tintColor = color
@@ -52,7 +54,6 @@ class SlideViewController: UIViewController {
         } else {
             return
         }
-        if images.isEmpty {return}
         var run = true
         var tran = 0
         while run {
@@ -101,6 +102,7 @@ class SlideViewController: UIViewController {
         return res
     }
     func setSong(song: MPMediaItem) {
+        if song.title == nil {return}
         myMediaPlayer.setQueue(with: MPMediaItemCollection.init(items: [song]))
         myMediaPlayer.play()
     }
