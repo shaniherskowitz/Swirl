@@ -76,6 +76,9 @@ class ImageTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func Menu(_ sender: UIBarButtonItem) {
+        saveImages()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -205,6 +208,8 @@ class ImageTableViewController: UITableViewController {
                 os_log("The menu button was not pressed, cancelling", log: OSLog.default, type: .debug)
                 return
             }
+            saveImages()
+            images.removeAll()
             //fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }

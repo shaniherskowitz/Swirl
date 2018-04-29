@@ -46,7 +46,12 @@ class SlideViewController: UIViewController {
         ExitButton.tintColor = color
     }
     func slideImages(imageView: UIImageView) {
-        images = loadImages()!
+        
+        if let savedImages = loadImages() {
+            images += savedImages
+        } else {
+            return
+        }
         if images.isEmpty {return}
         var run = true
         var tran = 0
