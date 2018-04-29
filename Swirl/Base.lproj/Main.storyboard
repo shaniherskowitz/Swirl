@@ -109,27 +109,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter picture name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TKv-eC-qtk">
-                                <rect key="frame" x="25" y="75" width="301" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th8-CA-fBh">
-                                <rect key="frame" x="25" y="117" width="125" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="11"/>
-                                <state key="normal" title=" Set Default Label Text.">
-                                    <color key="titleColor" red="0.45962202092820875" green="0.39614676158430573" blue="0.68745952072538863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="DefLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UU7-Hx-3uv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40M-jZ-V0o">
-                                <rect key="frame" x="329" y="75" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O8e-IX-3JO">
+                                <rect key="frame" x="25" y="75" width="305" height="443"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter picture name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TKv-eC-qtk">
+                                        <rect key="frame" x="2.5" y="0.0" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="u4L-m1-GS9"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th8-CA-fBh">
+                                        <rect key="frame" x="91" y="40" width="123" height="25"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="11"/>
+                                        <state key="normal" title=" Set Default Label Text.">
+                                            <color key="titleColor" red="0.45962202092820875" green="0.39614676158430573" blue="0.68745952072538863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="DefLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UU7-Hx-3uv"/>
+                                        </connections>
+                                    </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default photo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgg-Xe-Cn4">
+                                        <rect key="frame" x="0.0" y="75" width="305" height="305"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="305" id="26E-Ew-YE2"/>
+                                            <constraint firstAttribute="height" constant="305" id="ZZt-T8-gmj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="YOZ-vP-W9a" appends="YES" id="hM3-uk-RhW"/>
+                                        </connections>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YON-Wh-Jyt" customClass="RatingControl" customModule="Swirl" customModuleProvider="target">
+                                        <rect key="frame" x="26.5" y="390" width="252.5" height="53"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                <size key="value" width="44" height="44"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40M-jZ-V0o">
+                                <rect key="frame" x="334" y="75" width="30" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" red="0.45962202089999998" green="0.39614676160000001" blue="0.68745952070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,28 +165,15 @@
                                     <action selector="ClearText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WjA-TY-UfN"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default photo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgg-Xe-Cn4">
-                                <rect key="frame" x="25" y="158" width="317" height="301"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="YOZ-vP-W9a" appends="YES" id="hM3-uk-RhW"/>
-                                </connections>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YON-Wh-Jyt" customClass="RatingControl" customModule="Swirl" customModuleProvider="target">
-                                <rect key="frame" x="57" y="492" width="252" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                        <size key="value" width="44" height="44"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95830755741725937" green="0.94550513331452968" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="O8e-IX-3JO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="AnS-Oa-INe"/>
+                            <constraint firstItem="40M-jZ-V0o" firstAttribute="leading" secondItem="O8e-IX-3JO" secondAttribute="trailing" constant="4" id="KRs-qb-6mH"/>
+                            <constraint firstItem="40M-jZ-V0o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="NfQ-Nr-77H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O8e-IX-3JO" secondAttribute="bottom" constant="149" id="kb3-KF-06E"/>
+                            <constraint firstItem="O8e-IX-3JO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="yeF-zd-34n"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Image" id="Wck-JP-vLy">
@@ -236,42 +250,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fl-n7v">
-                                <rect key="frame" x="0.0" y="110" width="375" height="479"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="BK9-qi-0Ea"/>
-                                    <constraint firstAttribute="height" constant="479" id="vfd-zo-4hy"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swirl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-68-wsS">
-                                <rect key="frame" x="60" y="81" width="255" height="20"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K89-Rl-qc9" customClass="RatingControl" customModule="Swirl" customModuleProvider="target">
-                                <rect key="frame" x="60" y="597" width="252" height="44"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                        <size key="value" width="44" height="44"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="MPU-QI-0SA">
+                                <rect key="frame" x="0.0" y="73" width="375.5" height="573"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swirl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-68-wsS">
+                                        <rect key="frame" x="166" y="0.0" width="43.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fl-n7v">
+                                        <rect key="frame" x="0.0" y="32" width="375.5" height="479"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="BK9-qi-0Ea"/>
+                                            <constraint firstAttribute="height" constant="479" id="vfd-zo-4hy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K89-Rl-qc9" customClass="RatingControl" customModule="Swirl" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="523" width="252.5" height="50"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                <size key="value" width="44" height="44"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95559090375900269" green="0.94586330652236938" blue="0.99979501962661743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dUK-68-wsS" firstAttribute="leading" secondItem="lVa-n7-Inr" secondAttribute="leading" constant="60" id="0VG-Cs-54f"/>
-                            <constraint firstItem="K89-Rl-qc9" firstAttribute="top" secondItem="QgG-Fl-n7v" secondAttribute="bottom" constant="8" id="QnP-Ux-5Sg"/>
-                            <constraint firstItem="dUK-68-wsS" firstAttribute="top" secondItem="lVa-n7-Inr" secondAttribute="top" constant="17" id="e32-G0-5HY"/>
-                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="leading" secondItem="lVa-n7-Inr" secondAttribute="leading" id="eJc-5T-rX3"/>
-                            <constraint firstItem="K89-Rl-qc9" firstAttribute="leading" secondItem="lVa-n7-Inr" secondAttribute="leading" constant="60" id="gCt-mi-8lV"/>
-                            <constraint firstItem="lVa-n7-Inr" firstAttribute="trailing" secondItem="dUK-68-wsS" secondAttribute="trailing" constant="60" id="j7g-mY-OSx"/>
-                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="trailing" secondItem="lVa-n7-Inr" secondAttribute="trailing" id="jPb-Cw-2pn"/>
-                            <constraint firstItem="QgG-Fl-n7v" firstAttribute="top" secondItem="dUK-68-wsS" secondAttribute="bottom" constant="9" id="w1F-VW-nEz"/>
+                            <constraint firstItem="MPU-QI-0SA" firstAttribute="leading" secondItem="lVa-n7-Inr" secondAttribute="leading" id="2fN-MW-ECm"/>
+                            <constraint firstItem="MPU-QI-0SA" firstAttribute="top" secondItem="lVa-n7-Inr" secondAttribute="top" constant="9" id="KOP-gG-B0M"/>
+                            <constraint firstAttribute="trailing" secondItem="MPU-QI-0SA" secondAttribute="trailing" id="mjb-ec-sgi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lVa-n7-Inr"/>
                     </view>
@@ -365,6 +379,9 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-Te-UI3">
                                 <rect key="frame" x="100" y="104" width="175" height="59.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="hZA-9u-wfD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="54"/>
                                 <color key="textColor" red="0.45962202089999998" green="0.39614676160000001" blue="0.68745952070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
