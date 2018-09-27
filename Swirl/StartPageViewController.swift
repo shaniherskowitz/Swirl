@@ -44,11 +44,6 @@ class StartPageViewController: UIViewController {
         }
         updateButtonText()
         MenuLabel.textColor = vars.backgroundColor.darker()
-        
-         if let sourceViewController = sender.source as? ImageTableViewController {
-            
-            
-        }
     }
     
     

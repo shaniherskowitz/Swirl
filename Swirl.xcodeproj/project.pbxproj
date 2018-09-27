@@ -83,6 +83,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F3239DF3215D218100DEA782 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		F383024C207F565C00174F38 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +112,7 @@
 		F3830257207F565C00174F38 /* Swirl */ = {
 			isa = PBXGroup;
 			children = (
+				F3239DF3215D218100DEA782 /* Controllers */,
 				F3830258207F565C00174F38 /* AppDelegate.swift */,
 				F383025A207F565C00174F38 /* ImageViewController.swift */,
 				F32E2240208291A80068065D /* RatingControl.swift */,
